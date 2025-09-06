@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Harry Potter Explorer</title>
+    <!-- Browser tab icon -->
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <div class="brand">🪄 Harry Potter Explorer</div>
+        <nav class="links">
+          <a href="{{ url_for('home') }}">Главная</a>
+          <a href="{{ url_for('houses') }}">Факультеты</a>
+          <a href="{{ url_for('characters') }}">Персонажи</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main content area -->
+    <main class="wrap content">
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="wrap footer">© Harry Potter Explorer</footer>
+  </body>
+</html>

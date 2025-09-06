@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+  <section class="hero">
+    <div class="hero-wand" aria-hidden="true">🪄</div>
+    <h1 class="hero-title">Harry Potter Explorer</h1>
+    <p class="hero-sub">Погрузись в мир магии: изучай факультеты и персонажей.</p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ url_for('houses') }}">Исследовать факультеты</a>
+      <a class="btn btn-secondary" href="{{ url_for('characters') }}">Открыть каталог персонажей</a>
+    </div>
+  </section>
+{% endblock %}

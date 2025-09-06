@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Факультеты</h1>
+
+  <div class="grid grid-2x2">
+    {% for h in houses %}
+      <article class="card house-card" style="box-shadow: 0 12px 30px -10px {{ h.colors[0] }}88;">
+        <div class="bar" style="background: linear-gradient(90deg, {{ h.colors[0] }}, {{ h.colors[1] }})"></div>
+        <div class="card-body">
+          <div class="house-title">{{ h.symbol }} {{ h.name }}</div>
+          <p class="house-blurb">{{ h.blurb }}</p>
+          <div class="house-meta">
+            <span class="motto">{{ h.motto }}</span>
+            <span class="dot" style="background: {{ h.colors[0] }}"></span>
+            <span class="dot" style="background: {{ h.colors[1] }}"></span>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+{% endblock %}
+

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Персонажи</h1>
+
+  <form method="get" action="{{ url_for('characters') }}" class="search">
+    <input type="text" name="q" value="{{ q }}" placeholder="Поиск по имени (например, Harry)" />
+    <button type="submit">Искать</button>
+  </form>
+
+  {% if total == 0 %}
+    <p>Ничего не найдено.</p>
+  {% else %}
+    <p class="muted">Найдено: {{ total }}.</p>
+
+    <div class="grid-characters">
+      {% for ch in items %}
+        <article class="character-card">
+          {% if ch.image %}
+            <img src="{{ ch.image }}" alt="{{ ch.name }}" />
+          {% else %}
+            <div class="thumb-placeholder">нет изображения</div>
+          {% endif %}
+          <div class="title">{{ ch.name }}</div>
+          <div class="meta"><strong>Факультет:</strong> {{ ch.house or '—' }}</div>
+          <div class="meta"><strong>Патронус:</strong> {{ ch.patronus or '—' }}</div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <div class="pager">
+      {% if prev_url %}<a class="btn" href="{{ prev_url }}">← Назад</a>{% endif %}
+      <span class="muted">Стр. {{ page }}</span>
+      {% if next_url %}<a class="btn" href="{{ next_url }}">Вперёд →</a>{% endif %}
+    </div>
+  {% endif %}
+{% endblock %}
